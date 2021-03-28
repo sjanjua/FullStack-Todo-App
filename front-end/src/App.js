@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Jumbotron, Button } from 'react-bootstrap'
 import { TodoItem } from './Components/TodoItem'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchTodos } from './State/Actions/apiActions';
 
 // import { todoItems } from './testData';
 
 export const App = () => {
 
+    const dispatch = useDispatch();
     const state = useSelector( ( state ) => state.apiReducer );
+
+    useEffect( () => {
+
+        dispatch( fetchTodos() );
+
+    }, []);
 
     return (
         <Container 

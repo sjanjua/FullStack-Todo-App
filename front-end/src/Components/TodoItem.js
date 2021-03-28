@@ -1,13 +1,14 @@
 import React from 'react'
 import { FormCheck, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { deleteTodo } from '../State/Actions/apiActions';
 import { GET_TODOS, ADD_TODO, DELETE_TODO, CHECK_TODO } from '../State/Reducers/apiReducer';
 
 export const TodoItem = ( props ) => {
 
     const {
         id,
-        label,
+        description,
         isComplete,
     } = props;
 
@@ -17,7 +18,11 @@ export const TodoItem = ( props ) => {
 
         // const isChecked = e.target.checked;
 
-        dispatch( CHECK_TODO() );
+        dispatch( GET_TODOS() );
+    }
+
+    const onDelete = () => {
+        dispatch( deleteTodo( id ) );
     }
 
     return (
@@ -29,9 +34,9 @@ export const TodoItem = ( props ) => {
                         onChange={ onCheck }
                         checked={ isComplete }
                     />
-                    <div>{ label }</div>
+                    <div>{ description }</div>
                 </div>
-                <Button className='DeleteButton' variant='danger'>Delete</Button>
+                <Button onClick={ onDelete } className='DeleteButton' variant='danger'>Delete</Button>
             </div>
             <hr/>
         </div>
