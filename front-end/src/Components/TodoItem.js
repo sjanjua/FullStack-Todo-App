@@ -1,5 +1,7 @@
 import React from 'react'
-import { Card, Form, FormCheck, Button } from 'react-bootstrap';
+import { FormCheck, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { GET_TODOS, ADD_TODO, DELETE_TODO, CHECK_TODO } from '../State/Reducers/apiReducer';
 
 export const TodoItem = ( props ) => {
 
@@ -9,9 +11,13 @@ export const TodoItem = ( props ) => {
         isComplete,
     } = props;
 
+    const dispatch = useDispatch();
+
     const onCheck = ( e ) => {
 
-        const isChecked = e.target.checked;
+        // const isChecked = e.target.checked;
+
+        dispatch( CHECK_TODO() );
     }
 
     return (

@@ -1,10 +1,14 @@
 import React from 'react'
 import { Container, Jumbotron, Button } from 'react-bootstrap'
 import { TodoItem } from './Components/TodoItem'
+import { useSelector } from 'react-redux';
 
-import { todoItems } from './testData';
+// import { todoItems } from './testData';
 
 export const App = () => {
+
+    const state = useSelector( ( state ) => state.apiReducer );
+
     return (
         <Container 
             fluid='md'
@@ -20,8 +24,8 @@ export const App = () => {
                 </div>
                 <div className='TodoListContainer' >
                     {
-                        todoItems.data?.map( ( item, index ) => {
-                            return <TodoItem {...item} />
+                        state.todoItems?.map( ( item, index ) => {
+                            return <TodoItem key={ index } {...item} />
                         })
                     }
                 </div>
