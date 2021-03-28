@@ -1,6 +1,8 @@
 :root {
 
     --color-background: rgb(75, 75, 75);
+    --color-primary: rgb(49, 49, 49);
+    --color-secondary: rgb(80, 171, 247);
 }
 
 
@@ -11,10 +13,107 @@ html, body {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+
+    display: none;
+}
+
 #root {
 
     width: 100%;
     height: 100%;
     background: var( --color-background );
     overflow: hidden;
+}
+
+.AppContainer {
+    /* background: red; */
+    height: 100%;
+    padding-top: 10%;
+    width: 40%;
+    max-width: 1100px;
+}
+
+.TodoContainer {
+
+    height: 50%;
+    border-radius: 2rem;
+    background: var( --color-primary );
+    color: white;
+    padding: 0;
+    box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+    margin-bottom: 1.3rem;
+}
+
+.TitleBar {
+    
+    /* background: red; */
+    color: var( --color-secondary );
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 6px 11px -4px #000000; 
+    box-shadow: 0px 6px 12px -9px #000000;
+}
+
+.TodoListContainer {
+
+    /* background: red; */
+    height: 90%;
+    padding: 2%;
+    padding-top: 3%;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    overflow: scroll;
+}
+
+.TodoItem {
+
+    margin-bottom: 1.5%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.AddButton {
+    background: var( --color-secondary );
+    color: black;
+    font-weight: bold;
+    border-radius: 2rem;
+    box-shadow: 0px 6px 12px -9px #000000;
+}
+
+.DeleteButton {
+
+    /* width: 20%; */
+    max-height: 40px;
+}
+
+hr {
+
+    background: var( --color-secondary )
+}
+
+@media ( max-width: 1024px ) {
+
+    .AppContainer {
+        
+        width: 90%;
+    }
+
+    .TodoContainer {
+
+        height: 80%;
+    }
+}
+
+@media ( max-width: 400px ) {
+
+    .TitleBar {
+
+        font-size: 0.9rem;
+    }
 }
